@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Clave, proyecto académico de mensajería instantánea cifrada de extremo a extremo">
+    <title>Clave · Mensajería cifrada</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="#inicio" aria-label="Ir al inicio"><span aria-hidden="true">⌁</span> Clave</a>
+      <nav aria-label="Navegación principal">
+        <a href="#arquitectura">Arquitectura</a>
+        <a href="#seguridad">Seguridad</a>
+        <a href="#equipo">Equipo</a>
+        <a class="repo-link" href="https://github.com/Vasc0D/Clave-Mensajeria-Segura">GitHub</a>
+      </nav>
+    </header>
+
+    <main>
+      <section id="inicio" class="hero">
+        <div>
+          <p class="eyebrow">Proyecto de Ética y Seguridad de Datos</p>
+          <h1>Mensajería cifrada,<br><em>por diseño.</em></h1>
+          <p class="lead">Clave protege cada conversación desde el navegador. El servidor entrega sobres cifrados, pero nunca recibe el contenido legible ni las claves privadas.</p>
+          <div class="actions">
+            <a class="primary" href="https://github.com/Vasc0D/Clave-Mensajeria-Segura">Ver código</a>
+            <a class="secondary" href="#arquitectura">Cómo funciona</a>
+          </div>
+        </div>
+        <div class="envelope" aria-label="Resumen del flujo cifrado">
+          <span class="step">01 · Cifrar y firmar</span>
+          <strong>Navegador emisor</strong>
+          <span class="arrow">↓ sobre cifrado</span>
+          <strong>Backend FastAPI</strong>
+          <span class="arrow">↓ entrega WSS</span>
+          <strong>Navegador receptor</strong>
+          <span class="step">02 · Verificar y descifrar</span>
+        </div>
+      </section>
+
+      <section id="arquitectura" class="section">
+        <p class="eyebrow">Arquitectura</p>
+        <h2>El servidor transporta; los clientes protegen.</h2>
+        <div class="grid three">
+          <article><span>Cliente</span><h3>Criptografía local</h3><p>Genera identidades, cifra mensajes, verifica firmas y conserva las claves privadas cifradas en el dispositivo.</p></article>
+          <article><span>API</span><h3>Autenticación y entrega</h3><p>Gestiona cuentas, sesiones y conexiones WebSocket sin procesar el texto de las conversaciones.</p></article>
+          <article><span>Persistencia</span><h3>Cola cifrada</h3><p>SQLite conserva claves públicas, sobres cifrados, estados de entrega y auditoría sin contenido sensible.</p></article>
+        </div>
+      </section>
+
+      <section id="seguridad" class="section security">
+        <div>
+          <p class="eyebrow">Controles principales</p>
+          <h2>Protección en cada etapa del mensaje.</h2>
+        </div>
+        <dl>
+          <div><dt>X25519 + HKDF</dt><dd>Acuerdo y derivación de una clave contextualizada para cada mensaje.</dd></div>
+          <div><dt>AES-256-GCM</dt><dd>Confidencialidad e integridad autenticada del contenido.</dd></div>
+          <div><dt>Ed25519</dt><dd>Firma del sobre para autenticar remitente y campos críticos.</dd></div>
+          <div><dt>Huella SHA-256</dt><dd>Verificación de claves por un canal independiente y bloqueo ante cambios.</dd></div>
+          <div><dt>Argon2id</dt><dd>Almacenamiento resistente de contraseñas en el backend.</dd></div>
+          <div><dt>TLS 1.3</dt><dd>Protección adicional para credenciales, sesiones y metadatos en tránsito.</dd></div>
+        </dl>
+      </section>
+
+      <section class="section limits">
+        <p class="eyebrow">Alcance honesto</p>
+        <h2>Un prototipo académico, no un protocolo de producción.</h2>
+        <p>Clave demuestra un flujo completo y verificable de mensajería cifrada. No ofrece anonimato de metadatos, recuperación de claves perdidas, múltiples dispositivos ni Double Ratchet. Estas limitaciones están identificadas para no atribuir al sistema garantías que todavía no implementa.</p>
+      </section>
+
+      <section id="equipo" class="section team">
+        <p class="eyebrow">Equipo</p>
+        <h2>Tres aportes, una implementación.</h2>
+        <div class="names">
+          <p><strong>Vasco Diaz Hurtado</strong><span>Backend y arquitectura</span></p>
+          <p><strong>Enzo Gomez Villegas</strong><span>Cliente web y experiencia</span></p>
+          <p><strong>Bladimir Alferez</strong><span>Validación y operación segura</span></p>
+        </div>
+      </section>
+    </main>
+
+    <footer><span>Clave · UTEC · 2026</span><a href="https://github.com/Vasc0D/Clave-Mensajeria-Segura">Repositorio del proyecto</a></footer>
+  </body>
+</html>
