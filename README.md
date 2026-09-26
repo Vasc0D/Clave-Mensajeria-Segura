@@ -45,7 +45,7 @@ Abre `https://localhost:8443` después de confiar en la CA del laboratorio.
 
 - Vasco Diaz Hurtado
 - Enzo Gomez Villegas
-- Bladimir Alferez
+- Bladimir Alferez Vicente
 
 ## Sitio del proyecto
 
