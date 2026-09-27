@@ -59,7 +59,7 @@ Este repositorio contiene la implementación del proyecto actual. No incluye el
 prototipo heredado del curso anterior, bases de datos locales, certificados,
 secretos ni el informe entregable del equipo.
 
-##Informe del proyecto 
+## Informe del proyecto 
 
 Se encuentra alojado en Notion Web
 <https://app.notion.com/p/ProyectoEticaYSeguridad-3e862d17acf68053a55cf7950430f5f8?source=copy_link/>
